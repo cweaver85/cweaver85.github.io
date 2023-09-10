@@ -1,31 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Info</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+<nav class="menu">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li id="assignments"><a href="#">My Assignments</a>
+            <ul>
+                <li><a href="assignment1.html">Assignment 1</a></li>
+                <li><a href="assignment2.html">Assignment 2</a></li>
+                <li class="hidden-item"><a href="assignment3.html">Assignment 3</a></li>
+                <li class="hidden-item"><a href="assignment4.html">Assignment 4</a></li>
+                <li class="hidden-item"><a href="assignment5.html">Assignment 5</a></li>
+                <li class="hidden-item"><a href="assignment6.html">Assignment 6</a></li>
+                <li class="hidden-item"><a href="assignment7.html">Assignment 7</a></li>
+                <li class="hidden-item"><a href="assignment8.html">Assignment 8</a></li>
+                <li class="hidden-item"><a href="assignment9.html">Assignment 9</a></li>
+                <li class="hidden-item"><a href="assignment10.html">Assignment 10</a></li>
+                <li class="hidden-item"><a href="assignment11.html">Assignment 11</a></li>
+                <li class="hidden-item"><a href="assignment12.html">Assignment 12</a></li>
+                <li class="hidden-item"><a href="assignment13.html">Assignment 13</a></li>
+                <li class="hidden-item"><a href="assignment14.html">Assignment 14</a></li>
+                <li class="hidden-item"><a href="assignment15.html">Assignment 15</a></li>
+            </ul>
+        </li>
+        <li id="classes"><a href="#">Other Classes</a>
+            <ul>
+                <li><a href="https://jsfiddle.net/user/cweaver85/fiddles/" target="_blank">JavaScript</a></li>
+                <li><a href="weather.html">Weather</a></li>
+            </ul>
+        </li>
+    </ul>
+	</nav>
+<div id="weather">
+    <h2>Weather in <span id="city">City</span></h2>
+    <p>Temperature: <span id="temp">--</span>°C</p>
+    <p>Condition: <span id="condition">--</span></p>
+    <img id="icon" src="" alt="Weather Icon" style="display: none;">
+</div>
+	<footer>
+        <p>This page is created for fun by Christopher Weaver.</p>
+    </footer>
+<script src="weather.js"></script>
 
-const apiKey = '811123e85c5117f7a79613dceedc1957';
-
-const city = "Ormond Beach";
-const unit = "imperial";  // Fahrenheit
-
-fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`)
-    .then(response => response.json())
-    .then(data => {
-        const temperature = data.main.temp.toFixed(1);
-        const feelsLike = data.main.feels_like.toFixed(1);
-        const description = data.weather[0].description;
-        const icon = data.weather[0].icon;
-        const windSpeed = data.wind.speed;
-        const windDirection = data.wind.deg;
-        const humidity = data.main.humidity;
-
-        document.querySelector("#weather").innerHTML = `
-            <h2>Weather in Ormond Beach</h2>
-            <p>Temperature: ${temperature}°F</p>
-            <p>Feels Like: ${feelsLike}°F</p>
-            <p>Condition: ${description}</p>
-            <img src="http://openweathermap.org/img/wn/${icon}.png" id="icon">
-            <p>Wind Speed: ${windSpeed} mph</p>
-            <p>Wind Direction: ${windDirection}°</p>
-            <p>Humidity: ${humidity}%</p>
-        `;
-    })
-    .catch(error => {
-        console.error("There was an error fetching the weather data.", error);
-    });
+</body>
+</html>
